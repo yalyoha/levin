@@ -34,7 +34,8 @@ if ($what == 'txt') $text = getTxt($id);
   <head>
     <meta charset="utf-8">
     <title>LandingPageAdmin</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/superhero/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
   </head>
   <body style="margin-top: 30px;">
     <div class="container">  
@@ -47,10 +48,10 @@ if ($what == 'txt') $text = getTxt($id);
 <?php if ($what == 'img') { ?>
         <h3>Изображение № <?php echo $id; ?></h3>
         <img src="<?php echo $image; ?>" style="max-width: 100%">
-        <input class="form-control" type="file" name="image">
+        <input style="margin-top: 30px;" class="form-control" type="file" name="image">
 <? } ?>
-        <input style="margin-top: 30px;" class="btn btn-primary btn-lg pull-right" type="submit" value="Сохранить">
-        <input style="margin-top: 30px;" class="btn btn-default btn-lg pull-left" type="button" onclick="javascript: window.location.href = '/?edit';" value="Посмотреть">
+        <button style="margin-top: 30px;" class="btn btn-primary btn-lg pull-right" type="submit"><i class="fa fa-floppy-o fa-2x" aria-hidden="true"></i></button>
+        <button style="margin-top: 30px;" class="btn btn-default btn-lg pull-left" type="button" onclick="javascript: window.location.href = '/?edit';"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></button>
       </form>
     </div>
   </body>

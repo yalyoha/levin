@@ -3,11 +3,7 @@
 $realm = 'Restricted Area';
 $users = array('admin' => 'admin');
 
-if (empty($_SERVER['PHP_AUTH_DIGEST'])) {
-    header('HTTP/1.1 401 Unauthorized');
-    header('WWW-Authenticate: Digest realm="' . $realm . '",qop="auth",nonce="' . uniqid() . '",opaque="' . md5($realm) . '"');
-    die();
-}
+if (empty($_SERVER['PHP_AUTH_DIGEST'])) unauthorized($realm);
 
 if (!($data = http_digest_parse($_SERVER['PHP_AUTH_DIGEST'])) || !isset($users[$data['username']])) die('Wrong data!');
 
@@ -15,7 +11,13 @@ $A1 = md5($data['username'] . ':' . $realm . ':' . $users[$data['username']]);
 $A2 = md5($_SERVER['REQUEST_METHOD'] . ':' . $data['uri']);
 $valid_response = md5($A1 . ':' . $data['nonce'] . ':' . $data['nc'] . ':' . $data['cnonce'] . ':' . $data['qop'] . ':' . $A2);
 
-if ($data['response'] != $valid_response) die('Wrong data!');
+if ($data['response'] != $valid_response) unauthorized($realm);
+
+function unauthorized($realm) {
+    header('HTTP/1.1 401 Unauthorized');
+    header('WWW-Authenticate: Digest realm="' . $realm . '",qop="auth",nonce="' . uniqid() . '",opaque="' . md5($realm) . '"');
+    die();
+}
 
 function http_digest_parse($txt) {
     $needed_parts = array(

@@ -1,4 +1,20 @@
 <?php
 
-header('Content-Type: text/html; charset=utf-8');
+function microtime_float() {
+    list($usec, $sec) = explode(" ", microtime());
+    return ((float)$usec + (float)$sec);
+}
+
+$time_start = microtime_float();
+define('ST_T', $time_start);
+
 require 'layout/main.php';
+
+$time_end = microtime_float();
+$time = $time_end - ST_T;
+$time = number_format($time, 4, ".", "");
+
+echo "\n<!--\n";
+echo "Page load time: $time seconds\n";
+echo "Memory usage: " . round((memory_get_peak_usage(true) / 1024 / 1024), 2) . " Mb\n";
+echo "-->\n";

@@ -79,7 +79,7 @@ function t($id = null) {
     if (!isset($id)) return;
     $id = intval($id);
     $adminBtn = '<a style="position:absolute;top:0;left:0;background:rgba(255,255,255,.8);text-decoration:none;" href="/admin/edit.php?what=txt&id=' . $id . '">[' . $id . ']</a>';
-    echo $admin ? '<div style="position:relative">' . $adminBtn . getTxt($id) . '</div>' : getTxt($id);
+    echo $admin ? '<div style="display:inline-block;position:relative">' . $adminBtn . getTxt($id) . '</div>' : getTxt($id);
 }
 
 function i($id = null, $width = null, $height = null, $crop = true) {
@@ -87,7 +87,7 @@ function i($id = null, $width = null, $height = null, $crop = true) {
     if (!isset($id)) return;
     $id = intval($id);
     $adminBtn = '<a style="position:absolute;top:0;left:0;background:rgba(255,255,255,.8);text-decoration:none;" href="/admin/edit.php?what=img&id=' . $id . '&w=' . $width . '&h=' . $height . '&c=' . $crop . '">[' . $id . ']</a>';
-    echo $admin ? '<div style="position:relative">' . $adminBtn . '<img src="' . getImg($id, $width, $height, $crop) . '"></div>' : '<img src="' . getImg($id, $width, $height, $crop) . '">';
+    echo $admin ? '<div style="display:inline-block;position:relative">' . $adminBtn . '<img src="' . getImg($id, $width, $height, $crop) . '"></div>' : '<img src="' . getImg($id, $width, $height, $crop) . '">';
 }
 
 function thumb($src, $width, $height, $crop) {
