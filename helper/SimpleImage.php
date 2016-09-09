@@ -24,7 +24,7 @@ class SimpleImage {
      * @var int Default output image quality
      *
      */
-    public $quality = 90;
+    public $quality = 80;
 
     protected $image, $filename, $original_info, $width, $height, $imagestring, $mimetype;
 

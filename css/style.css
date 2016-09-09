@@ -1,0 +1,21 @@
+body {background: #efefef;}
+.content .inner {background: #ffffff; padding: 30px; overflow: hidden;}
+.line {display: block; clear: both; width: 100%; background: #efefef; padding: 1px 0 0 0; margin: 20px 0; position: relative;}
+.line:before, .line:after {display: block; content:''; width: 30px; background: #efefef; padding: 1px 0 0 0; position: absolute;}
+.line:before {top:0; left:-30px;}
+.line:after  {top:0; right:-30px;}
+header .inner {background: #f9843e; padding: 30px; overflow: hidden; color: #ffffff;}
+header .inner a {color: #ffffff;}
+footer .inner {padding: 30px; overflow: hidden;}
+h1, h2, h3, h4, .h1, .h2, .h3, .h4 {font-size: 20px; mso-line-height-rule: exactly; line-height: 24px; font-weight: 700; text-transform: uppercase; color: #333333;}
+.main-menu {display: table; width: 100%; padding: 0; margin: 0;}
+.main-menu li {display: table-cell;}
+.main-menu li a {display: block; padding: 15px 0; text-align: center; text-transform: uppercase; font-size: 14px;}
+.main-menu li a:hover {background: rgba(255,255,255,.1);}
+.logo-wr {margin-top: -21px;}
+.logo {height: 110px;}
+.logo-caption {text-transform: uppercase; font-size: 18px; font-weight: 700; margin-bottom: 20px;}
+img {max-width: 100%;}
+.admin-wr {display:inline-block;position:relative;}
+.admin {display:inline-block;position:absolute;top:-18px;left:-20px;width:auto; padding:0 1px; height:18px;line-height:17px;background:rgba(0,0,0,.1);color:#fff;text-decoration:none;cursor:pointer;}
+.admin:hover {background:rgba(0,0,0,.2);}

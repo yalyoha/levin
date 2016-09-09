@@ -1,17 +1,20 @@
 <?php
 
 $realm = 'Restricted Area';
-$users = array('admin' => 'admin');
+$users = array('admin' => 'nimda16');
 
-if (empty($_SERVER['PHP_AUTH_DIGEST'])) unauthorized($realm);
+if (empty($_SERVER['PHP_AUTH_DIGEST']))
+    unauthorized($realm);
 
-if (!($data = http_digest_parse($_SERVER['PHP_AUTH_DIGEST'])) || !isset($users[$data['username']])) die('Wrong data!');
+if (!($data = http_digest_parse($_SERVER['PHP_AUTH_DIGEST'])) || !isset($users[$data['username']]))
+    die('Wrong data!');
 
 $A1 = md5($data['username'] . ':' . $realm . ':' . $users[$data['username']]);
 $A2 = md5($_SERVER['REQUEST_METHOD'] . ':' . $data['uri']);
 $valid_response = md5($A1 . ':' . $data['nonce'] . ':' . $data['nc'] . ':' . $data['cnonce'] . ':' . $data['qop'] . ':' . $A2);
 
-if ($data['response'] != $valid_response) unauthorized($realm);
+if ($data['response'] != $valid_response)
+    unauthorized($realm);
 
 function unauthorized($realm) {
     header('HTTP/1.1 401 Unauthorized');
