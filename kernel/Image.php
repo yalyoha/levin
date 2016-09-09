@@ -2,8 +2,8 @@
 
 class Image {
 
-    static function getImg($id = null, $width = null, $height = null, $crop = null) {
-        if (!isset($id))
+    static function getImg($crc32 = null, $width = null, $height = null, $crop = null) {
+        if (!isset($crc32))
             return;
         if (!isset($width))
             $width = 400;
@@ -11,46 +11,45 @@ class Image {
             $height = 300;
         if (!isset($crop))
             $crop = true;
-        $id = intval($id);
-        $result = Db::conn()->query("SELECT image FROM images WHERE id=$id LIMIT 1");
+        $crc32 = intval($crc32);
+        $result = Db::conn()->query("SELECT image FROM images WHERE crc32=$crc32 LIMIT 1");
         $data = $result->fetch_assoc();
         if ($result->num_rows > 0)
             return self::thumb($data['image'], $width, $height, $crop);
         else
-            return self::thumb(self::insertImg($id, '/images/noimage.png', $width, $height, $crop), $width, $height, $crop);
+            return self::thumb(self::insertImg($crc32, '/images/noimage.png', $width, $height, $crop), $width, $height, $crop);
     }
 
-    static function setImg($id = null, $data) {
-        if (!isset($id))
+    static function setImg($crc32 = null, $data) {
+        if (!isset($crc32))
             return;
-        $id = intval($id);
+        $crc32 = intval($crc32);
         $data = strip_tags($data);
         $data = Db::conn()->escape_string($data);
-        if (Db::conn()->query("UPDATE images SET image='$data' WHERE id=$id") === true)
+        if (Db::conn()->query("UPDATE images SET image='$data' WHERE crc32=$crc32") === true)
             return Db::conn()->affected_rows;
         else
             die("Error: " . Db::conn()->error);
     }
 
-    static function insertImg($id = null, $data, $width, $height, $crop) {
-        if (!isset($id))
+    static function insertImg($crc32 = null, $data, $width, $height, $crop) {
+        if (!isset($crc32))
             return;
-        $id = intval($id);
+        $crc32 = intval($crc32);
         $data = strip_tags($data);
         $data = Db::conn()->escape_string($data);
-        if (Db::conn()->query("INSERT INTO images (id, image) VALUES ('$id', '$data')") === true)
-            return self::getImg($id, $width, $height, $crop);
+        if (Db::conn()->query("INSERT INTO images (id, image) VALUES ('$crc32', '$data')") === true)
+            return self::getImg($crc32, $width, $height, $crop);
         else
             die("Error: " . Db::conn()->error);
     }
 
-    static function i($id = null, $width = null, $height = null, $crop = true) {
-        global $admin;
-        if (!isset($id))
+    static function i($crc32 = null, $width = null, $height = null, $crop = true) {
+        if (!isset($crc32))
             return;
-        $id = intval($id);
-        $adminBtn = '<span class="admin" data="/admin/edit.php?what=img&id=' . $id . '&w=' . $width . '&h=' . $height . '&c=' . $crop . '">[' . $id . ']</span>';
-        echo $admin ? '<span class="admin-wr">' . $adminBtn . '<img src="' . self::getImg($id, $width, $height, $crop) . '"></span>' : '<img src="' . self::getImg($id, $width, $height, $crop) . '">';
+        $crc32 = intval($crc32);
+        $adminBtn = '<span class="admin" data="/admin/edit.php?what=img&crc32=' . $crc32 . '&w=' . $width . '&h=' . $height . '&c=' . $crop . '">[' . $crc32 . ']</span>';
+        echo $admin ? '<span class="admin-wr">' . $adminBtn . '<img src="' . self::getImg($crc32, $width, $height, $crop) . '"></span>' : '<img src="' . self::getImg($crc32, $width, $height, $crop) . '">';
     }
 
     static function thumb($src, $width, $height, $crop) {
