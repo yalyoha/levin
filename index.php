@@ -8,7 +8,8 @@ function microtime_float() {
 $time_start = microtime_float();
 define('ST_T', $time_start);
 
-require 'template/template.php';
+include 'config/config.php';
+include 'template/template.php';
 
 $time_end = microtime_float();
 $time = $time_end - ST_T;
