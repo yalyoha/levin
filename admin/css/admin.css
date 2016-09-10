@@ -1,0 +1,5 @@
+.admin-wr { display: inline-block; position: relative; }
+.admin { display: inline-block; font-size: 10px; text-transform: lowercase; opacity: .5; position: absolute; white-space: nowrap; z-index: 9999; top: 0; left: 0; width: auto; padding: 0 1px; height: 18px; line-height: 17px; background: rgba(0,0,0,.5); color: #fff; text-decoration: none; cursor: pointer; }
+.admin:hover { background: rgba(0,0,0,.8); }
+#control {position: fixed; left: 0; top:0; padding: 19px; cursor: pointer; z-index: 9999;}
+#exit {position: fixed; right: 0; top:0; padding: 19px; cursor: pointer; z-index: 9999;}
