@@ -5,19 +5,8 @@ SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
-DROP TABLE IF EXISTS `images`;
-CREATE TABLE `images` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `crc32` int(11) unsigned NOT NULL,
-  `image` varchar(255) NOT NULL DEFAULT '',
-  `active` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `crc32` (`crc32`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-
-DROP TABLE IF EXISTS `sending`;
-CREATE TABLE `sending` (
+DROP TABLE IF EXISTS `entries`;
+CREATE TABLE `entries` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) NOT NULL DEFAULT '',
   `phone` varchar(255) NOT NULL DEFAULT '',
@@ -28,15 +17,26 @@ CREATE TABLE `sending` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
-DROP TABLE IF EXISTS `texts`;
-CREATE TABLE `texts` (
+DROP TABLE IF EXISTS `images`;
+CREATE TABLE `images` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `crc32` int(11) unsigned NOT NULL,
-  `text` text NOT NULL,
-  `active` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `alias` varchar(255) NOT NULL DEFAULT '',
+  `image` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `crc32` (`crc32`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
--- 2016-09-09 11:25:47
+DROP TABLE IF EXISTS `texts`;
+CREATE TABLE `texts` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `crc32` int(11) unsigned NOT NULL,
+  `alias` varchar(255) NOT NULL DEFAULT '',
+  `text` text NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `crc32` (`crc32`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+-- 2016-09-10 19:41:33
