@@ -1,6 +1,7 @@
 <?php
 include 'auth.php';
 include '../config/config.php';
+$sessionAdmin = isset($_SESSION['access']) ? $_SESSION['access'] : '';
 ?>
 <!doctype html>
 <html>
@@ -28,7 +29,7 @@ include '../config/config.php';
         </div>        
         <div class="clearfix">
           <button style="margin-top: 30px;" class="btn btn-default btn-lg pull-left" type="button" onclick="javascript: history.back(-1);"><i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i></button>
-          <button style="margin-top: 30px;" class="btn btn-default btn-lg pull-left" type="button" onclick="javascript: window.location.href = '/?edit&reset=<?php echo uniqid(); ?>';"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></button>
+          <button style="margin-top: 30px;" class="btn btn-default btn-lg pull-left" type="button" onclick="javascript: window.location.href = '/?access=<?php echo $sessionAdmin; ?>';"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></button>
         </div>        
     </div>
 <script src="/js/jquery-1.11.2.min.js" ></script>    
@@ -37,7 +38,7 @@ $('span.admin[data]').click(function() {
     window.location.href = $(this).attr('data');
 });
 </script>  
-<div id="control" class="control"><img src="http://temporary.eto-studio.ru/images/svg/best-logo.svg"><span class="inner"><b><span class="uc">Frankie Maker</span><i class="fa fa-usd" aria-hidden="true"></i></b> :: <b>Levin CMS</b><br>Landing Page Editor</span></div>
+<div id="control" class="control"><img src="http://temporary.eto-studio.ru/images/svg/best-logo.svg"><span class="inner"><b><span class="uc">Frankie Makers</span></b> :: <b>Levin CMS</b><br>Landing Page Editor</span></div>
 <div id="exit"><i class="fa fa-times fa-2x" aria-hidden="true"></i></div>
 <style>#control {cursor: default;}</style>
 <script>

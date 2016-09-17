@@ -40,6 +40,19 @@
 .admin:hover {
 	background: rgba(0,0,0,.8);
 }
+
+.admin-restruct {
+    position: relative;
+}
+
+.admin-restruct-select {
+    position: absolute;
+    right: 0;
+    top: -26px;
+    z-index: 1000;
+}
+
+
 #control .uc {
     text-transform: uppercase;
 }

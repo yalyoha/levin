@@ -1,18 +1,6 @@
 $(document).ready(function() {
 'use strict';
 
-$('.admin[data]').click(function() {
-    window.location.href = $(this).attr('data');
-});
-
-$('#control').click(function() {
-    window.location.href = '/admin/control.php';
-});
-
-$('#exit').click(function() {
-    window.location.href = '/';
-});
-
 $('.phone').mask("+7 (999) 999 - 99 - 99");
 
 /******************** STICKY NAVBAR ********************/

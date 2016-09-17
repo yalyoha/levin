@@ -7,28 +7,40 @@ function microtime_float() {
 $time_start = microtime_float();
 define('ST_T', $time_start);
 
-$edit = isset($_GET['edit']);
 include 'config/config.php';
 
-//echo "<!--";
-//print_r($_GET);
-//echo "-->";
+$htmlId = isset($_GET['htmlId']) ? $_GET['htmlId'] : false;
+$recount = isset($_GET['recount']) ? $_GET['recount'] : false;
 
-if ($edit) {
+//check access
+$queryAdmin = isset($_GET['access']) ? $_GET['access'] : 1;
+$sessionAdmin = isset($_SESSION['access']) ? $_SESSION['access'] : 2;
+$access = ($sessionAdmin == $queryAdmin);
 
-    if (isset($_GET['htmlrow']) && isset($_GET['fragment']) && isset($_GET['recount']) && $_GET['htmlrow'] && $_GET['fragment'] && $_GET['recount']) {
-
+if ($access) {
+    if ($htmlId && $recount) {
         $restruct = new Restruct;
-        $restruct->render($_GET['htmlrow'], $_GET['fragment'], $_GET['recount']);
+        $restruct->render($htmlId, $recount);
     }
-
 }
 
-if (!$edit) ob_start("ob_gzhandler");
+if (!$access) ob_start("ob_gzhandler");
+
+$css = new CssMinifier;
+$stylesheet = $css->tagLink();
+
+$levinJS = '';
+$adminBtns = '';
+if ($access) {
+    $levinJS = '<script type="text/javascript" src="/js/levin.js" ></script>';
+    $adminBtns = '<div id="control"><i class="fa fa-cogs fa-2x" aria-hidden="true"></i> <img src="http://temporary.eto-studio.ru/images/svg/best-logo.svg"><span class="inner"><b><span class="uc">Frankie Makers</span></b> :: <b>Levin CMS</b><br>
+                  Landing Page Editor</span></div>
+                <div id="exit"><i class="fa fa-times fa-2x" aria-hidden="true"></i></div>';
+}
 
 include 'template/template.php';
 
-if (!$edit) {
+if (!$access) {
     $tidy = new tidy;
     $tidy_config = array(
         'hide-comments' => true,
