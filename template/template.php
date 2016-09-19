@@ -4,8 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <meta charset="utf-8">
 <!-- TITLE OF SITE --><title><?php Text::txt('[tag-title]'); ?></title>
-<!-- META DATA --><meta name="description" content="&lt;?php Text::txt('[tag-meta-description]'); ?&gt;">
-<meta name="keywords" content="&lt;?php Text::lcase('[tag-meta-keywords]'); ?&gt;">
+<!-- META DATA --><meta name="description" content="">
+<meta name="keywords" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <!-- =========================
   FAV AND TOUCH ICONS  
@@ -22,7 +22,7 @@
 	background: url("<?php Image::src('[background-image-2]',  2560, 595); ?>") top center no-repeat;
 }
 </style>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=cyrillic">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans:300,400,600,700&amp;subset=cyrillic">
 </head>
 <body>
 <!-- =========================
@@ -172,7 +172,8 @@
 </div>
     </div>
     <!-- /END SECTION HEADING -->
-    <div id="pricingUnit" class="restcruct row"><div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+    <div id="pricingUnit" class="restcruct row">
+<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
         <div class="single-table">
           <header><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <h5 class="heading">
@@ -227,8 +228,7 @@
 </div>
       </div>
       <!-- /END SECTION HEADING -->
-      <div id="testimonialUnit" class="restcruct row">
-<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+      <div id="testimonialUnit" class="restcruct row"><div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
           <blockquote class="testimonial text-center">
             <p>
               <?php Text::here('[testimonialUnit-1]'); ?></p>
@@ -346,6 +346,6 @@
   </div>
 </footer><!-- =========================
      SCRIPTS 
-============================== --><script type="text/javascript" src="/js/jquery-1.11.2.min.js"></script><?php echo $levinJS; ?><script type="text/javascript" src="/js/bootstrap.min.js"></script><script type="text/javascript" src="/js/owl.carousel.min.js"></script><script type="text/javascript" src="/js/nivo-lightbox.min.js"></script><script type="text/javascript" src="/js/jquery.fitvids.js"></script><script type="text/javascript" src="/js/smoothscroll.js"></script><script type="text/javascript" src="/js/matchMedia.js"></script><script type="text/javascript" src="/js/jquery.nav.js"></script><script type="text/javascript" src="/js/jquery.ajaxchimp.min.js"></script><script type="text/javascript" src="/js/scrollReveal.min.js"></script><script type="text/javascript" src="/js/jquery.videoBG.js"></script><script type="text/javascript" src="/js/jquery.maskedinput.min.js"></script><script type="text/javascript" src="/js/application.js"></script><?php echo $adminBtns; ?>
+============================== --><script type="text/javascript" src="/js/jquery-1.11.2.min.js"></script><script type="text/javascript" src="/js/bootstrap.min.js"></script><script type="text/javascript" src="/js/owl.carousel.min.js"></script><script type="text/javascript" src="/js/nivo-lightbox.min.js"></script><script type="text/javascript" src="/js/jquery.fitvids.js"></script><script type="text/javascript" src="/js/smoothscroll.js"></script><script type="text/javascript" src="/js/matchMedia.js"></script><script type="text/javascript" src="/js/jquery.nav.js"></script><script type="text/javascript" src="/js/jquery.ajaxchimp.min.js"></script><script type="text/javascript" src="/js/scrollReveal.min.js"></script><script type="text/javascript" src="/js/jquery.videoBG.js"></script><script type="text/javascript" src="/js/jquery.maskedinput.min.js"></script><script type="text/javascript" src="/js/application.js"></script><script type="text/javascript" src="/js/extra.js"></script><?php echo $adminBtns; ?><?php echo $levinJS; ?>
 </body>
 </html>

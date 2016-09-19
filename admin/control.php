@@ -29,10 +29,9 @@ $sessionAdmin = isset($_SESSION['access']) ? $_SESSION['access'] : '';
         </div>        
         <div class="clearfix">
           <button style="margin-top: 30px;" class="btn btn-default btn-lg pull-left" type="button" onclick="javascript: history.back(-1);"><i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i></button>
-          <button style="margin-top: 30px;" class="btn btn-default btn-lg pull-left" type="button" onclick="javascript: window.location.href = '/?access=<?php echo $sessionAdmin; ?>';"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></button>
         </div>        
     </div>
-<script src="/js/jquery-1.11.2.min.js" ></script>    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" ></script>     
 <script>
 $('span.admin[data]').click(function() {
     window.location.href = $(this).attr('data');

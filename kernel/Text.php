@@ -19,7 +19,7 @@ class Text {
         $crc32 = self::$crc32;
         $result = Db::query("SELECT text FROM texts WHERE crc32=$crc32 LIMIT 1");
         $data = $result->fetch_assoc();
-        if ($result->num_rows > 0) return $data['text'];
+        if ($result->num_rows > 0) return str_replace("\n", '<br>', $data['text']);
         else  return self::insertTxt('text#' . self::$alias);
     }
     

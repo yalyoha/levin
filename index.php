@@ -32,7 +32,7 @@ $stylesheet = $css->tagLink();
 $levinJS = '';
 $adminBtns = '';
 if ($access) {
-    $levinJS = '<script type="text/javascript" src="/js/levin.js" ></script>';
+    $levinJS = '<script type="text/javascript" src="/admin/js/levin.js" ></script>';
     $adminBtns = '<div id="control"><i class="fa fa-cogs fa-2x" aria-hidden="true"></i> <img src="http://temporary.eto-studio.ru/images/svg/best-logo.svg"><span class="inner"><b><span class="uc">Frankie Makers</span></b> :: <b>Levin CMS</b><br>
                   Landing Page Editor</span></div>
                 <div id="exit"><i class="fa fa-times fa-2x" aria-hidden="true"></i></div>';

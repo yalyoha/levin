@@ -8,7 +8,7 @@ class Image {
     
     static function alias($alias) {
         if (!$alias) die('Error: empty alias!');
-        $alias = str_replace(array('[', ']'), '', $alias);
+        $alias = str_replace(array('[', ']','_'), '', $alias);
         self::$alias = $alias;
         self::$crc32 = sprintf("%u", crc32($alias));
     } 
@@ -88,7 +88,9 @@ class Image {
         if (!is_dir($newDir)) mkdir($newDir);
         $newPath = $dirname . '/' . $width . 'x' . $height . '/' . $basename;
         $newSrc = str_replace(DROOT, '', $newPath);
-        if (file_exists($newPath) && filemtime($path) == filemtime($newPath)) return $newSrc;
+        //echo filemtime($path) . ' :: ' . filemtime($newPath);
+        if (file_exists($newPath)) return $newSrc; // && filemtime($path) == filemtime($newPath)
+        //echo "<!--load SimpleImage-->";
         $img = new SimpleImage($path);
         if ($crop) $img->thumbnail($width, $height)->save($newPath);
         else  $img->best_fit($width, $height)->save($newPath);

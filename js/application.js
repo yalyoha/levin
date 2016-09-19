@@ -1,8 +1,6 @@
 $(document).ready(function() {
 'use strict';
-
 $('.phone').mask("+7 (999) 999 - 99 - 99");
-
 /******************** STICKY NAVBAR ********************/
 if ( matchMedia( 'only screen and (min-width: 768px)' ).matches ) {
    //Get navbar brand logo image

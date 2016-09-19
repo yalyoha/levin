@@ -33,11 +33,12 @@ include 'save.php';
       </form>
     </div>
   <? if ( (isset($_POST) && $_POST) || (isset($_FILES) && $_FILES) ) { ?>        
-  <script>window.location.href = '/?access=<?php echo $sessionAdmin; ?>'</script>
+  <script>history.back(-1);</script>
   <? } ?>
 <div id="control" class="edit"><img src="http://temporary.eto-studio.ru/images/svg/best-logo.svg"><span class="inner"><b><span class="uc">Frankie Makers</span></b> :: <b>Levin CMS</b><br>Landing Page Editor</span></div>
 <div id="exit"><i class="fa fa-times fa-2x" aria-hidden="true"></i></div>
 <style>#control {cursor: default;}</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" ></script>  
 <script>
 $('#exit').click(function() {
     window.location.href = '/';
