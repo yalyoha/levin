@@ -2,7 +2,6 @@
 <html lang="ru">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<meta charset="utf-8">
 <!-- TITLE OF SITE --><title><?php Text::txt('[tag-title]'); ?></title>
 <!-- META DATA --><meta name="description" content="">
 <meta name="keywords" content="">
@@ -28,8 +27,7 @@
 <!-- =========================
      NAVBAR 
 ============================== -->
-<header class="navbar fog-navbar fog-navbar-light navbar-fixed-top navbar-anim" id="main-nav"><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<div class="container">
+<header class="navbar fog-navbar fog-navbar-light navbar-fixed-top navbar-anim" id="main-nav"><div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navigation"> <span class="sr-only"> </span> <span class="icon-bar"> </span> <span class="icon-bar"> </span> <span class="icon-bar"> </span> </button>
       <a class="navbar-brand" href="#home"><img src="/images/svg/logo.svg" alt="company name"></a> </div>
@@ -80,8 +78,7 @@
     <!-- SECTION HEADING -->
     <div class="row">
       <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
-        <header class="section-heading text-center"><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<h2 class="title-text">
+        <header class="section-heading text-center"><h2 class="title-text">
             <?php Text::here('[service-title]'); ?>
 </h2>
           <p class="sub-title">
@@ -90,8 +87,7 @@
 </div>
     </div>
     <!-- /END SECTION HEADING -->
-    <div id="serviceUnit" class="restcruct row">
-<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+    <div id="serviceUnit" class="restcruct row"><div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
         <div class="service-item text-center">
           <?php Image::here('[serviceUnit-1]', 251, 251); ?><h4 class="title-text">
             <?php Text::here('[serviceUnit-2]'); ?>
@@ -128,8 +124,7 @@
         <?php Image::here('[description-image-1]', 610, 461,'img-responsive img-md-right]', ']'); ?>
 </div>
       <div class="col-md-5 pull-left mb-45" data-sr="enter left, move 40px, over 1s">
-        <header class="column-heading"><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<i class="icon icon-basic-rss"></i>
+        <header class="column-heading"><i class="icon icon-basic-rss"></i>
           <h2 class="title-text">
             <?php Text::here('[description-title-1]'); ?>
 </h2>
@@ -146,8 +141,7 @@
         <?php Image::here('[description-image-2]', 610, 461,'img-responsive img-md-left]', ']'); ?>
 </div>
       <div class="col-md-5 mb-45" data-sr="enter right, move 40px, over 1s">
-        <header class="column-heading"><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<i class="icon icon-basic-share"></i>
+        <header class="column-heading"><i class="icon icon-basic-share"></i>
           <h2 class="title-text">
             <?php Text::here('[description-title-2]'); ?>
 </h2>
@@ -162,8 +156,7 @@
     <!-- SECTION HEADING -->
     <div class="row">
       <div class="col-md-6 col-md-offset-3 ">
-        <header class="section-heading text-center"><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<h2 class="title-text">
+        <header class="section-heading text-center"><h2 class="title-text">
             <?php Text::here('[pricing-title]'); ?>
 </h2>
           <p class="sub-title">
@@ -175,8 +168,7 @@
     <div id="pricingUnit" class="restcruct row">
 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
         <div class="single-table">
-          <header><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<h5 class="heading">
+          <header><h5 class="heading">
               <?php Text::here('[pricingUnit-1]'); ?>
 </h5>
             <div class="pricing"> <span class="rate">
@@ -187,8 +179,7 @@
       </div>
 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
         <div class="single-table">
-          <header><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<h5 class="heading">
+          <header><h5 class="heading">
               <?php Text::here('[pricingUnit-3]'); ?>
 </h5>
             <div class="pricing"> <span class="rate">
@@ -199,8 +190,7 @@
       </div>
 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
         <div class="single-table">
-          <header><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<h5 class="heading">
+          <header><h5 class="heading">
               <?php Text::here('[pricingUnit-5]'); ?>
 </h5>
             <div class="pricing"> <span class="rate">
@@ -218,8 +208,7 @@
       <!-- SECTION HEADING -->
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-          <header class="section-heading text-center"><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<h2 class="title-text">
+          <header class="section-heading text-center"><h2 class="title-text">
               <?php Text::here('[testimonials-title]'); ?>
 </h2>
             <p class="sub-title">
@@ -228,7 +217,8 @@
 </div>
       </div>
       <!-- /END SECTION HEADING -->
-      <div id="testimonialUnit" class="restcruct row"><div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+      <div id="testimonialUnit" class="restcruct row">
+<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
           <blockquote class="testimonial text-center">
             <p>
               <?php Text::here('[testimonialUnit-1]'); ?></p>
@@ -267,8 +257,7 @@
 ============================== --><section class="trial-download trial-download-1" id="trial-download"><div class="overlay">
     <div class="container text-center"> 
       <!-- SECTION HEADING -->
-      <header class="section-heading"><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<h2 class="title-text">
+      <header class="section-heading"><h2 class="title-text">
           <?php Text::here('[action-text-1]'); ?>
 </h2>
       </header><!-- /END SECTION HEADING --><p class="info">

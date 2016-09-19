@@ -1,13 +1,9 @@
 <?php
-function microtime_float() {
-    list($usec, $sec) = explode(" ", microtime());
-    return ((float)$usec + (float)$sec);
-}
-
-$time_start = microtime_float();
-define('ST_T', $time_start);
-
 include 'config/config.php';
+
+$cache = new Cache('LandingPage');
+
+$cache->getCache();
 
 $htmlId = isset($_GET['htmlId']) ? $_GET['htmlId'] : false;
 $recount = isset($_GET['recount']) ? $_GET['recount'] : false;
@@ -24,8 +20,6 @@ if ($access) {
     }
 }
 
-if (!$access) ob_start("ob_gzhandler");
-
 $css = new CssMinifier;
 $stylesheet = $css->tagLink();
 
@@ -40,39 +34,4 @@ if ($access) {
 
 include 'template/template.php';
 
-if (!$access) {
-    $tidy = new tidy;
-    $tidy_config = array(
-        'hide-comments' => true,
-        'tidy-mark' => false,
-        'indent' => true,
-        'indent-spaces' => 2,
-        'new-blocklevel-tags' => 'menu,article,header,footer,section,nav,main',
-        'new-inline-tags' => 'video,audio',
-        'doctype' => '<!DOCTYPE html>',
-        'vertical-space' => false,
-        'output-xml' => true,
-        'wrap' => 0,
-        'wrap-attributes' => false,
-        'break-before-br' => false,
-        'char-encoding' => 'utf8',
-        'input-encoding' => 'utf8',
-        'output-encoding' => 'utf8');
-
-    $html = ob_get_clean();
-    $html = str_replace('></i', '>&nbsp;</i', $html);
-    $html = str_replace('></span', '>&nbsp;</span', $html);
-    $html = str_replace('/>', '>', $html);
-    $html = str_replace(' >', '>', $html);
-    $tidy->parseString($html, $tidy_config, 'utf8');
-    echo str_replace('&nbsp;', '', $tidy);
-}
-
-$time_end = microtime_float();
-$time = $time_end - ST_T;
-$time = number_format($time, 4, ",", "");
-
-echo "\n<!--\n";
-echo "Page load time: $time seconds\n";
-echo "Memory usage: " . round((memory_get_peak_usage(true) / 1024 / 1024), 4) . " Mb\n";
-echo "-->\n";
+$cache->setCache();
