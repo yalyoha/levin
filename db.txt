@@ -2,8 +2,6 @@
 
 SET NAMES utf8;
 SET time_zone = '+00:00';
-SET foreign_key_checks = 0;
-SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 DROP TABLE IF EXISTS `entries`;
 CREATE TABLE `entries` (
@@ -28,6 +26,17 @@ CREATE TABLE `images` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
+DROP TABLE IF EXISTS `mp3s`;
+CREATE TABLE `mp3s` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `crc32` int(11) unsigned NOT NULL,
+  `alias` varchar(255) NOT NULL DEFAULT '',
+  `mp3` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  KEY `crc32` (`crc32`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
 DROP TABLE IF EXISTS `texts`;
 CREATE TABLE `texts` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -39,4 +48,4 @@ CREATE TABLE `texts` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
--- 2016-09-10 19:41:33
+-- 2017-05-11 10:55:12
